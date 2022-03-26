@@ -3,9 +3,9 @@ package com.company;
 import java.util.*;
 
 public class Main {
-//    public int[] solution(int n, int[] nums){
-//
-//    }
+    public int[] solution(int n, int[] nums){
+
+    }
 
     public static void main(String[] args) {
         Main T = new Main();
