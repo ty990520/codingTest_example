@@ -1,36 +1,41 @@
 package com.company;
 
-import com.company.notes.array.Ex6;
 
-import java.util.*;
+
+import java.util.Scanner;
 
 public class Main {
-    public int[] solution(int n, int[] nums){
-        for (int i = 0; i < n; i++) {
-            String reverse = new StringBuffer(String.valueOf(nums[i])).reverse().toString();
-            nums[i] = Integer.parseInt(reverse);
-        }
+    public int solution(int numOfStu, int numOfTest, int[][] ranks) {
+        int result = 0;
 
-//        int[] tmp = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            if (nums[i]%3==0 && nums[i]!=3){
-
+        for (int i = 0; i < numOfStu; i++) {
+            for (int j = 0; j < numOfStu; j++) {
+                int cnt=0; //3번 채워야함
+                for (int k = 0; k < numOfTest; k++) {
+                    int menti=0, mento = 0;
+                    for (int s = 0; s < numOfStu; s++) {
+                        if(ranks[k][s]==i+1) mento = s;
+                        if(ranks[k][s]==j+1) menti = s;
+                    }
+                    if (mento<menti) cnt++;   //등수는 작아야 높은거
+                }
+                if(cnt==numOfTest) result++;
             }
         }
-        return nums;
+        return result;
     }
 
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scan = new Scanner(System.in);
         int n = scan.nextInt();
-        int[] nums = new int[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = scan.nextInt();
+        int m = scan.nextInt();
+        int[][] array = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                array[i][j] = scan.nextInt();
+            }
         }
-        for (int i : T.solution(n,nums)) {
-            System.out.print(i+" ");
-        }
+        System.out.println(T.solution(n, m, array));
     }
 }
