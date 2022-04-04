@@ -1,7 +1,5 @@
 package com.company.notes.hashMapAndTreeSet;
 
-import com.company.Main;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -23,8 +21,8 @@ public class Ex3 {
             hashItem.put(items[lt], hashItem.get(items[lt]) - 1);
             if(hashItem.get(items[lt])==0){
                 hashItem.remove(items[lt]);
-                lt++;
             }
+            lt++;
         }
         return result;
     }
