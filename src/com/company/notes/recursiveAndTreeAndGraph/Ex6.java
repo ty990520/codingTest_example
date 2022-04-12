@@ -6,7 +6,13 @@ public class Ex6 {
 
     public void dfs(int l) {
         if (l == n + 1) {
-
+            String tmp = "";
+            for (int i = 1; i <= n; i++) {
+                if(ch[i]==1)
+                    tmp += i+" ";
+            }
+            if(tmp.length()>0)  //공집합 제외하고 출력
+                System.out.println(tmp);
         } else {
             ch[l] = 1;
             dfs(l + 1);   //왼쪽 가지 (o인 경우)
