@@ -11,10 +11,10 @@ public class Ex8 {
     int[] dis={1,-1,5};
     Queue<Integer> queue = new LinkedList<>();
 
-    public int solution(int s, int e){
+    public int solution(int start, int end){
         ArrayList<Integer> list = new ArrayList<>();
-        queue.offer(s);
-        list.add(s);
+        queue.offer(start);
+        list.add(start);
         int l = 0;
         while(!queue.isEmpty()){
             int len = queue.size();
@@ -22,7 +22,7 @@ public class Ex8 {
                 int poll = queue.poll();
                 for (int j = 0; j < dis.length; j++) {
                     int new_val = poll+dis[j];
-                    if(new_val==e) return l+1;
+                    if(new_val==end) return l+1;
                     if(!list.contains(new_val)){
                         queue.offer(new_val);
                         list.add(new_val);
