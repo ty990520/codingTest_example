@@ -5,8 +5,9 @@ package com.company.notes.recursiveAndTreeAndGraph;
 public class Ex9 {
     Node root;
     public int dfs(int l, Node root){
-        if(root.lt== null && root.rt == null) return l;
+        if(root.lt== null && root.rt == null) return l; //노드가 루트 하나인 경우
         else return Math.min(dfs(l+1,root.lt), dfs(l+1,root.rt));
+        
     }
     public static void main(String[] args) {
         Ex9 T = new Ex9();
