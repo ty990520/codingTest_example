@@ -44,7 +44,6 @@ public class Q1707 {
     }
 
     public static void dfs(int node) {
-
         visited[node] = true;
 
         for (int i : graph[node]) {
