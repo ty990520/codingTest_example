@@ -17,6 +17,7 @@ public class Q2579 {
             dp[i] = Math.max(dp[i-2],dp[i-3]+arr[i-1])+arr[i];
         }
 
+        System.out.println();
         return dp[dp.length-1];
     }
 

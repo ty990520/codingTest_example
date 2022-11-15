@@ -15,6 +15,8 @@ public class Q9465 {
             dp[0][i] = Math.max(dp[1][i - 1], dp[1][i - 2]) + arr[0][i];
             dp[1][i] = Math.max(dp[0][i - 1], dp[0][i - 2]) + arr[1][i];
         }
+
+
         return Math.max(dp[0][n], dp[1][n]);
     }
 
