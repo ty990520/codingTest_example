@@ -3,7 +3,7 @@ package com.company.notes.programmers;
 public class Q42860 {
     public static void main(String[] args) {
         Q42860 test = new Q42860();
-        System.out.println(test.solution("JEROEN"));
+        System.out.println(test.solution("JANAAZ"));
     }
 
     public int solution(String name) {
