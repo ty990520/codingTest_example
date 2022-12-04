@@ -1,9 +1,13 @@
-package com.company.notes.study;
+package com.company.notes.study.week9;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
+
+/*
+* 수 이어 쓰기 1
+* */
 
 public class BOJ1748 {
     public static void main(String[] args) throws IOException {
@@ -14,7 +18,7 @@ public class BOJ1748 {
         System.out.println(test.solution(st.nextToken()));
     }
 
-    public static int solution(String n) g{
+    public static int solution(String n) {
         int answer = 0;
         int digit = n.length();
 
