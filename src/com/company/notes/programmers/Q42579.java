@@ -5,8 +5,8 @@ import java.util.*;
 public class Q42579 {
     public static void main(String[] args) {
         Q42579 test = new Q42579();
-        String[] genres = {"classic"};
-        int[] plays = {500};
+        String[] genres = {"classic", "pop", "classic", "classic", "pop"};
+        int[] plays = {500, 600, 150, 800, 2500};
         int[] result = test.solution(genres, plays);
         for (int i : result) {
             System.out.print(i + " ");
@@ -18,12 +18,7 @@ public class Q42579 {
         HashMap<String, ArrayList<Music>> hash = new HashMap<>();
 
         for (int i = 0; i < genres.length; i++) {
-            ArrayList<Music> list;
-            if (hash.containsKey(genres[i])) {   //장르가 이미 저장되어있는 경우
-                list = hash.get(genres[i]);
-            } else {
-                list = new ArrayList<>();
-            }
+            ArrayList<Music> list = hash.getOrDefault(genres[i], new ArrayList<>());
             list.add(new Music(i, plays[i]));
             hash.put(genres[i], list);
         }
@@ -96,4 +91,3 @@ public class Q42579 {
     }
 
 }
-
