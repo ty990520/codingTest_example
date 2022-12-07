@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 * 동전 0
 * */
 public class BOJ11047 {
-    public static void main() throws IOException{
+    public static void main(String[] args) throws IOException{
         BOJ11047 test = new BOJ11047();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
