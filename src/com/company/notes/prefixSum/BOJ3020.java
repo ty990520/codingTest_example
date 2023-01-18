@@ -1,2 +1,4 @@
-package com.company.notes.prefixSum;public class BOJ3020 {
+package com.company.notes.prefixSum;
+
+public class BOJ3020 {
 }
