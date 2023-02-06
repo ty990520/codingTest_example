@@ -1,4 +1,4 @@
-package com.company.notes.DP;
+package com.company.notes.DP.inf;
 
 import java.util.ArrayList;
 import java.util.Collections;
