@@ -1,4 +1,4 @@
-package com.company.notes.dataStructure.list;
+package com.company.notes.dataStructure.map;
 
 import java.io.*;
 import java.util.*;
