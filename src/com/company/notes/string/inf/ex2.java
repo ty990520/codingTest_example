@@ -1,4 +1,4 @@
-package com.company.notes.string;
+package com.company.notes.string.inf;
 
 import com.company.Main;
 
