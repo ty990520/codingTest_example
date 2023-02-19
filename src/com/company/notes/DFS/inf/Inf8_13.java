@@ -1,4 +1,4 @@
-package com.company.notes.DFS;
+package com.company.notes.DFS.inf;
 
 import java.util.Scanner;
 
