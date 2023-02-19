@@ -1,4 +1,4 @@
-package com.company.notes.BFS;
+package com.company.notes.BFS.inf;
 
 
 import java.util.LinkedList;

@@ -1,4 +1,4 @@
-package com.company.notes.BFS;
+package com.company.notes.BFS.pg;
 
 import java.util.LinkedList;
 import java.util.Queue;
