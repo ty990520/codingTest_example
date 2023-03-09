@@ -1,6 +1,4 @@
-package com.company.notes.stackAndQueue;
-
-import com.company.Main;
+package com.company.notes.stackAndQueue.inf;
 
 import java.util.LinkedList;
 import java.util.Queue;

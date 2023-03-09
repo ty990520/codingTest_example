@@ -1,6 +1,4 @@
-package com.company.notes.stackAndQueue;
-
-import com.company.Main;
+package com.company.notes.stackAndQueue.inf;
 
 import java.util.Scanner;
 import java.util.Stack;

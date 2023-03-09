@@ -1,4 +1,4 @@
-package com.company.notes.stackAndQueue;
+package com.company.notes.stackAndQueue.inf;
 
 import java.util.Scanner;
 
