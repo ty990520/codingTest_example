@@ -5,13 +5,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-/* BFS+백트래킹 --> 되긴 하지만 메모리 초과(Site마다 hashSet을 두개나 들고있기 때문) */
+/* DFS+백트래킹 */
 public class BOJ1987 {
     static char[][] board;
-    static int[][] cntArr;
     static int[] dirX = {-1, 1, 0, 0};
     static int[] dirY = {0, 0, -1, 1};
     static int r, c, answer = Integer.MIN_VALUE;
+    static HashSet<Character> alphabet;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,71 +19,34 @@ public class BOJ1987 {
         r = Integer.parseInt(st.nextToken());
         c = Integer.parseInt(st.nextToken());
         board = new char[r][c];
-        cntArr = new int[r][c];
+        alphabet = new HashSet<>();
         for (int i = 0; i < r; i++) {
             String line = br.readLine();
             for (int j = 0; j < c; j++) {
                 board[i][j] = line.charAt(j);
             }
         }
-        bfs();
+        alphabet.add(board[0][0]);
+        dfs(0, new int[]{0, 0});
         System.out.println(answer);
     }
 
-    public static void bfs() {
-        Queue<Site> queue = new LinkedList<>();
-        HashSet<Character> alphabet = new HashSet<>(Arrays.asList(board[0][0]));
-        queue.add(new Site(0, 0, alphabet, new HashSet<>()));
-        cntArr[0][0] = 1;
-
-        while (!queue.isEmpty()) {
-            Site poll = queue.poll();
-            for (int i = 0; i < 4; i++) {
-                int nowX = poll.x + dirX[i];
-                int nowY = poll.y + dirY[i];
-                if (nowX >= 0 && nowX < r && nowY >= 0 && nowY < c) {
-                    if (!poll.isVisited(nowX, nowY) && !poll.set.contains(board[nowX][nowY])) {
-                        cntArr[nowX][nowY] = cntArr[poll.x][poll.y] + 1;
-                        answer = Math.max(answer, cntArr[nowX][nowY]);
-                        HashSet<Character> newSet = new HashSet<>(poll.set);
-                        newSet.add(board[nowX][nowY]);
-                        Site newSite = setNewVisited(poll, nowX, nowY, newSet);
-                        queue.add(newSite);
-                    }
+    public static void dfs(int level, int[] site) {
+        boolean isFinish = true;
+        for (int i = 0; i < dirX.length; i++) {
+            int nowX = site[0] + dirX[i];
+            int nowY = site[1] + dirY[i];
+            if (nowX >= 0 && nowX < r && nowY >= 0 && nowY < c) {
+                if (!alphabet.contains(board[nowX][nowY])) {
+                    isFinish = false;
+                    alphabet.add(board[nowX][nowY]);
+                    dfs(level + 1, new int[]{nowX, nowY});
+                    alphabet.remove(board[nowX][nowY]);
                 }
             }
-
-
         }
-    }
-
-    private static Site setNewVisited(Site poll, int nowX, int nowY, HashSet<Character> newSet) {
-        HashSet<Site> newVisited = new HashSet<>(poll.visited);
-        newVisited.add(new Site(nowX, nowY));
-        Site newSite = new Site(nowX, nowY, newSet, newVisited);
-        return newSite;
-    }
-
-    static class Site {
-        int x;
-        int y;
-        HashSet<Character> set;
-        HashSet<Site> visited;
-
-        public Site(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        public Site(int x, int y, HashSet<Character> set, HashSet<Site> visited) {
-            this.x = x;
-            this.y = y;
-            this.set = set;
-            this.visited = visited;
-        }
-
-        public boolean isVisited(int x, int y) {
-            return visited.contains(new Site(x, y));
+        if (isFinish) {
+            answer = Math.max(answer, level + 1);
         }
     }
 }
