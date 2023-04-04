@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Stack;
 
+/*11번가 코테 3번*/
 public class Test {
     static int n, answer = 0;
     static String s;
